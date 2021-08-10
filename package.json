@@ -1,0 +1,16 @@
+{
+  "name": "duolingo-plus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^5.5.3",
+    "puppeteer": "^10.2.0"
+  }
+}
