@@ -54,7 +54,6 @@ const config = require("./config.json");
         let text = await page.evaluate(() => {
             return document.getElementsByClassName("DYCFd")[0].textContent;
         });
-        console.log(text);
         if (text !== "Why are you learning a language?") {
             // How much of German do you know?
             await click("/html/body/div[1]/div/div/div/div[2]/div/div/div/label[1]/div/div");
