@@ -39,8 +39,8 @@ const config = require("./config.json");
         // Accept cookies
         await click("/html/body/div[3]/div[2]/div/div[1]/div/div[2]/div/button[2]");
 
-        // Select German
-        await click("/html/body/div[1]/div/div/span/div/div/div/ul/a[4]");
+        // Select Spanish
+        await click(`//*[@id="root"]/div/div/span/div/div/div/ul/button[1]`);
 
         // Select first in the page "Where did you hear about us" (Doesnt need to be friends)
         await click("/html/body/div[1]/div/div/div/div[2]/div/div/div/label[1]/span");
@@ -84,7 +84,7 @@ const config = require("./config.json");
         await click("/html/body/div[1]/div/div/div/div/div[1]/div/div/button");
 
         // Create profile
-        await click("/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/button[1]");
+        await click("/html/body/div[1]/div/div[4]/div/div/div[1]/div[2]/button[1]");
 
         // Creating profile
 
