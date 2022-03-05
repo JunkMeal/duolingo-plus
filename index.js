@@ -35,9 +35,11 @@ const config = require("./config.json");
     async function create() {
         await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36");
         await page.goto(config.link);
-
-        // Select Spanish
-        await click(`//*[@id="root"]/div/div/span/div/div/div/ul/button[1]`);
+		
+        // Select something 
+		const button = await page.$x(`//*[@id="root"]/div/div/span/div/div/div/ul/button`)
+		page.evaluate(e => e.click(), button[0]);
+        //await click(`//*[@id="root"]/div/div/span/div/div/div/ul/button`);
 
         // Exit
         await click("/html/body/div[1]/div/div/div/div[1]/div/button");
@@ -48,7 +50,7 @@ const config = require("./config.json");
         // Creating profile
 
         let user = {};
-        user.email = require("faker").internet.userName()+"."+require("crypto").randomBytes(12).toString("base64").replace(/\//g,"").replace(/\+/g,"").replace(/\=/g,"")+"@gmail.com"
+        user.email = /*require("faker").internet.userName()+"."+*/require("crypto").randomBytes(12).toString("base64").replace(/\//g,"").replace(/\+/g,"").replace(/\=/g,"")+"@gmail.com"
         user.age = "5";
 
         // Age 5 (doesnt automaticly follow)
