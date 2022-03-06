@@ -14,3 +14,9 @@ This program is for educational purposes only.
 
 19 is recommended because that gives you 6 months of 
 free plus
+
+> ### Can i use this multiple times to get plus?
+
+Duolingo caps your referrals to 19 so after the 6 months  
+you cant use this again
+
