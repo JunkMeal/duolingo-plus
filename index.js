@@ -51,7 +51,7 @@ let createAccount = async (referral) => {
     const ora = (await import("ora")).default;
     const chalk = (await import("chalk")).default;
     console.log(`
-${chalk.hex("#58cc02")("Duo")}${chalk.white("lingo")} ${chalk.hex("#4b4b4b")("plus")}
+${chalk.hex("#58cc02")("Duo")}${chalk.white("lingo ")} ${chalk.hex("#4b4b4b")("plus")}
 ${chalk.hex("#4b4b4b")("made  by ")} ${chalk.white("JunkMeal")}
 `);
 
