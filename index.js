@@ -46,7 +46,7 @@ let createAccount = async (referral) => {
     })
 };
 
-;(async ()=> {
+;(async () => {
     const inquirer = require('inquirer');
     const ora = (await import("ora")).default;
     const chalk = (await import("chalk")).default;
