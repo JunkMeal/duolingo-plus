@@ -16,6 +16,7 @@
   "bugs": {
     "url": "https://github.com/JunkMeal/duolingo-plus/issues"
   },
+  "bin":"./index.js",
   "homepage": "https://github.com/JunkMeal/duolingo-plus#readme",
   "dependencies": {
     "axios": "^0.26.0",
