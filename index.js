@@ -1,72 +1,81 @@
-const puppeteer = require("puppeteer");
-const config = require("./config.json");
-(async () => {
-    const browser = await puppeteer.launch({
-        headless: config.headless,
-        args: ["--disable-notifications"],
+let createAccount = async (referral) => {
+    const axios = require("axios").default;
+    const setCookie = require('set-cookie-parser');
+    const { v4: uuidv4 } = require('uuid');
+    const Chance = require("chance");
+    const chance = new Chance();
+
+    const duo = axios.create({
+        baseURL: "https://www.duolingo.com/2017-06-30/",
+        headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393" },
     });
-    const page = await browser.newPage();
+    
+    let referral_code = referral.split("/");
+    referral_code = referral_code[referral_code.length - 1]
+    
+    let mur = await duo({
+        method: "POST",
+        url: "/users?fields=id",
+        data: {
+            "distinctId": uuidv4(),
+            "timezone": "America/Montreal",
+            "fromLanguage": "en",
+            "inviteCode": referral_code
+        }
+    }).catch(e => {
+        console.error(e)
+    })
 
-    async function type(xpath, text) {
-        await page.waitForXPath(xpath, {
-            visible: true,
-            timeout: 0,
-        });
-        const input = await page.$x(xpath);
-        if (input) await input[0].type(text);
+    let jwt = setCookie.parse(mur).find(e => e.name == "jwt_token");
+    let id = mur.data.id;
+
+    await duo({
+        method: "PATCH",
+        url: `/users/${id}?fields=none`,
+        data: {
+            "age": "5",
+            "email": chance.email(),
+            "password": require("crypto").randomBytes(12).toString("base64")
+        },
+        headers: {
+            Cookie: `jwt_token=${jwt.value};`
+        }
+    }).catch(e => {
+        console.error(e)
+    })
+};
+
+;(async ()=> {
+    const inquirer = require('inquirer');
+    const ora = (await import("ora")).default;
+    const chalk = (await import("chalk")).default;
+    console.log(`
+${chalk.hex("#58cc02")("Duo")}${chalk.white("lingo")} ${chalk.hex("#4b4b4b")("plus")}
+${chalk.hex("#4b4b4b")("made by ")} ${chalk.white("JunkMeal")}
+`);
+
+    const answers = await inquirer.prompt([
+    {
+        name: "referral_link",
+        type: "input",
+        message: "What is your duolingo referral link?"
+    },
+    {
+        name: "account_count",
+        type: "input",
+        message: "How many accounts do you want to create?",
+        validate: (input) => 
+            !isNaN(input) || "You need to provide a number.",
+        default: () => "19"
     }
-    async function click(xpath) {
-        await page.waitForXPath(xpath, {
-            visible: true,
-            timeout: 0,
-        });
-        const button = await page.$x(xpath);
-        if (button) await button[0].click();
+    ]);
+
+    let count = answers.account_count;
+    let link = answers.referral_link;
+    const spinner = ora(`Creating accounts (0/${count})`).start();
+    for (let i = 0; i < count; i++) {
+        await createAccount(link);
+        spinner.text = `Creating accounts (${i+1}/${count})`;
     }
-
-    for (let i = 0; i < config.count; i++) {
-        await create();
-        console.log(`Account ${i + 1} created. [${process.pid}]`);
-    }
-
-    console.log("Done！");
-    browser.close();
-
-    async function create() {
-        await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36");
-        await page.goto(config.link);
-		
-        // Select something 
-		const button = await page.$x(`//*[@id="root"]/div/div/span/div/div/div/ul/button`)
-		page.evaluate(e => e.click(), button[0]);
-        //await click(`//*[@id="root"]/div/div/span/div/div/div/ul/button`);
-
-        // Exit
-        await click("/html/body/div[1]/div/div/div/div[1]/div/button");
-
-        // Create profile
-        await click("/html/body/div[1]/div/div[4]/div/div/div[1]/div[2]/button[1]");
-
-        // Creating profile
-
-        let user = {};
-        user.email = /*require("faker").internet.userName()+"."+*/require("crypto").randomBytes(12).toString("base64").replace(/\//g,"").replace(/\+/g,"").replace(/\=/g,"")+"@gmail.com"
-        user.age = "5";
-
-        // Age 5 (doesnt automaticly follow)
-        await type("/html/body/div[2]/div[5]/div/div/form/div[1]/div[1]/div[1]/label/div/input", user.age);
-
-        // Input random gmail
-        await type("/html/body/div[2]/div[5]/div/div/form/div[1]/div[1]/div[3]/label/div/input", user.email);
-
-        // Input random password
-        await type("/html/body/div[2]/div[5]/div/div/form/div[1]/div[1]/div[4]/label/div/input", user.email);
-
-        // Register
-        await click("/html/body/div[2]/div[5]/div/div/form/div[1]/button");
-
-        // Clear cookies
-        const client = await page.target().createCDPSession();
-        await client.send("Network.clearBrowserCookies");
-    }
+    spinner.stop();
 })();

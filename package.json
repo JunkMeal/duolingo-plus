@@ -1,16 +1,29 @@
 {
   "name": "duolingo-plus",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "duolingo-plus\r Basically free 6 months of duolingo plus",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JunkMeal/duolingo-plus.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "JunkMeal",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JunkMeal/duolingo-plus/issues"
+  },
+  "homepage": "https://github.com/JunkMeal/duolingo-plus#readme",
   "dependencies": {
-    "faker": "^5.5.3",
-    "puppeteer": "^10.2.0"
+    "axios": "^0.26.0",
+    "chalk": "^5.0.0",
+    "chance": "^1.1.8",
+    "inquirer": "^8.2.0",
+    "ora": "^6.1.0",
+    "set-cookie-parser": "^2.4.8",
+    "uuid": "^8.3.2"
   }
 }
