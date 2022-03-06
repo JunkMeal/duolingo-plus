@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 let createAccount = async (referral) => {
     const axios = require("axios").default;
     const setCookie = require('set-cookie-parser');
