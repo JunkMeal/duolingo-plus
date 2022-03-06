@@ -1,7 +1,7 @@
 ># duolingo-plus
 Basically free 6 months of duolingo plus
 
->## HOW TO USE?
+>## Installation and Usage
 You need to have node.js installed with npm  
 
 Download the latest version from the [releases](https://github.com/JunkMeal/duolingo-plus/releases) tab  
