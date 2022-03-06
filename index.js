@@ -79,4 +79,5 @@ ${chalk.hex("#4b4b4b")("made  by ")} ${chalk.white("JunkMeal")}
         spinner.text = `Creating accounts (${i+1}/${count})`;
     }
     spinner.stop();
+    console.log(chalk.hex("#00ff00")("Done!"))
 })();
