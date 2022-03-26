@@ -4,8 +4,7 @@
   "description": "duolingo-plus\r Basically free 6 months of duolingo plus",
   "main": "index.js",
   "scripts": {
-    "dev": "coffee --compile --output lib/ src/ && node lib/index.js",
-    "build": "coffee --compile --output lib/ src/"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/JunkMeal/duolingo-plus/issues"
   },
-  "bin": "./lib/index.js",
+  "bin":"./index.js",
   "homepage": "https://github.com/JunkMeal/duolingo-plus#readme",
   "dependencies": {
     "axios": "^0.26.0",
@@ -27,9 +26,5 @@
     "ora": "^6.1.0",
     "set-cookie-parser": "^2.4.8",
     "uuid": "^8.3.2"
-  },
-  "type": "module",
-  "devDependencies": {
-    "coffeescript": "^2.6.1"
   }
 }
