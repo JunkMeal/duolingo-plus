@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "coffee --compile --output lib/ src/ && node lib/index.js",
-    "build": "coffee --compile --output lib/ src/"
+    "build": "coffee --compile --no-header --output lib/ src/"
   },
   "repository": {
     "type": "git",
