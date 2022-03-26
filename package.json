@@ -2,7 +2,7 @@
   "name": "duolingo-plus",
   "version": "2.0.0",
   "description": "duolingo-plus\r Basically free 6 months of duolingo plus",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "dev": "coffee --compile --output lib/ src/ && node lib/index.js",
     "build": "coffee --compile --no-header --output lib/ src/"
