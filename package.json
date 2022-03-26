@@ -1,6 +1,6 @@
 {
   "name": "duolingo-plus",
-  "version": "2.0.1",
+  "version": "2.0.0",
   "description": "duolingo-plus\r Basically free 6 months of duolingo plus",
   "main": "./lib/index.js",
   "scripts": {
