@@ -1,6 +1,4 @@
-`#!/usr/bin/env node
-`
-
+#!/usr/bin/env node
 import axios from "axios"
 import setCookie from "set-cookie-parser"
 import { v4 as uuidv4 } from 'uuid'
