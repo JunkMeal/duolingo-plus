@@ -1,4 +1,5 @@
 # duolingo-plus
+⚠️This might not work⚠️
 Basically free 6 months of duolingo plus
 
 # Installation and Usage
