@@ -1,5 +1,4 @@
 # duolingo-plus
-⚠️This might not work⚠️
 Basically free 6 months of duolingo plus
 
 # Installation and Usage
@@ -16,6 +15,7 @@ Run `npm i` to install packages
 and finnaly run it with `node index.js`  
 
 # FAQ
+
 > ### How many accounts should i create?  
 
 19 is recommended because that gives you 6 months of 
@@ -25,6 +25,13 @@ free plus
 
 Duolingo caps your referrals to 19 so after the 6 months  
 you cant use this again
+
+# Troubleshooting
+
+### It creates the accounts but no plus
+1. You cant use this with the ip associated with your duolingo account try a vpn or proxy.
+
+
 
 #### Use this program at your own risk.
 #### This program is for educational purposes only.
