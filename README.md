@@ -1,5 +1,5 @@
 # duolingo-plus
-Basically free 6 months of duolingo plus
+Basically free 19 weeks of duolingo plus
 
 # Installation and Usage
 You need to have node.js installed with npm
@@ -18,12 +18,12 @@ and finnaly run it with `node index.js`
 
 > ### How many accounts should i create?  
 
-19 is recommended because that gives you 6 months of 
+19 is recommended because that gives you 19 weeks of 
 free plus
 
 > ### Can i use this multiple times to get plus?
 
-Duolingo caps your referrals to 19 so after the 6 months  
+Duolingo caps your referrals to 19 so after the 19 weeks  
 you cant use this again
 
 # Troubleshooting
