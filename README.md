@@ -1,5 +1,6 @@
 # duolingo-plus
-Basically free 19 weeks of duolingo plus
+Basically free 19 weeks of duolingo plus.  
+The program creates accounts using your referral link.
 
 # Installation and Usage
 You need to have node.js installed with npm
