@@ -67,7 +67,7 @@ ${chalk.hex("#4b4b4b")("made  by ")} ${chalk.white("JunkMeal")}
         message: "How many accounts do you want to create?",
         validate: (input) => 
             !isNaN(input) || "You need to provide a number.",
-        default: () => "19"
+        default: () => "24"
     }
     ]);
 
