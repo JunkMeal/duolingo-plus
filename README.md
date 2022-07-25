@@ -1,5 +1,5 @@
 # duolingo-plus
-Basically free 19 weeks of duolingo plus.  
+Basically free 6 months of duolingo plus.  
 The program creates accounts using your referral link.
 
 # Installation and Usage
@@ -19,12 +19,12 @@ and finnaly run it with `node index.js`
 
 > ### How many accounts should i create?  
 
-19 is recommended because that gives you 19 weeks of 
+24 is recommended because that gives you 24 weeks of 
 free plus
 
 > ### Can i use this multiple times to get plus?
 
-Duolingo caps your referrals to 19 so after the 19 weeks  
+Duolingo caps your referrals to 24 so after the 24 weeks  
 you cant use this again
 
 # Troubleshooting
