@@ -1,6 +1,6 @@
 {
   "name": "duolingo-plus",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "duolingo-plus\r Basically free 6 months of duolingo plus",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/JunkMeal/duolingo-plus/issues"
   },
-  "bin":"./index.js",
+  "bin": "./index.js",
   "homepage": "https://github.com/JunkMeal/duolingo-plus#readme",
   "dependencies": {
     "axios": "^0.26.0",
