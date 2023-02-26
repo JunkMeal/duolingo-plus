@@ -11,7 +11,7 @@ let createAccount = async (referral) => {
         headers: { "User-Agent": ua },
     });
     
-    const { data } = await axios.get("https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LcLOdsjAAAAAFfwGusLLnnn492SOGhsCh-uEAvI&co=aHR0cHM6Ly93d3cuZHVvbGluZ28uY29tOjQ0Mw..&hl=en&v=Nh10qRQB5k2ucc5SCBLAQ4nA&size=invisible&cb=ql0fzyhsvuzv", 
+  /*  const { data } = await axios.get("https://www.recaptcha.net/recaptcha/enterprise/anchor?ar=1&k=6LcLOdsjAAAAAFfwGusLLnnn492SOGhsCh-uEAvI&co=aHR0cHM6Ly93d3cuZHVvbGluZ28uY29tOjQ0Mw..&hl=en&v=Nh10qRQB5k2ucc5SCBLAQ4nA&size=invisible&cb=ql0fzyhsvuzv", 
     {
         headers: {
             "User-Agent": ua
@@ -20,10 +20,10 @@ let createAccount = async (referral) => {
     const starts = `id="recaptcha-token" value="`;
     const start = data.indexOf(starts) + starts.length;
     const captcha_token = data.substring(start, data.indexOf(`"`, start) + 1);
-
+*/
     const signal = {
         siteKey: "6LcLOdsjAAAAAFfwGusLLnnn492SOGhsCh-uEAvI",
-        token: captcha_token,
+        token: "xd",
         vendor: 2
     }
 
@@ -47,13 +47,15 @@ let createAccount = async (referral) => {
     let jwt = setCookie.parse(mur).find(e => e.name == "jwt_token");
     let id = mur.data.id;
 
+    const pass = require("crypto").randomBytes(12).toString("base64")
+    const email = chance.email()
     await duo({
         method: "PATCH",
         url: `/users/${id}?fields=email,identifier,name,username`,
         data: {
             "age": "5",
-            "email": chance.email(),
-            "password": require("crypto").randomBytes(12).toString("base64"),
+            "email": email,
+            "password": pass,
             signal
         },
         headers: {
